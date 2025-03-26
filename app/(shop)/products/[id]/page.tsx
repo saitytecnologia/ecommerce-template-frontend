@@ -6,13 +6,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { ChevronRight, Minus, Plus, ShoppingBag, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 
 import { toast } from "sonner";
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+export default function ProductPage() {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("m");
+
+  const params = useParams();
 
   // This would typically come from an API call using the ID
   const product = {
