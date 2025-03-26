@@ -1,39 +1,39 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Toaster } from "sonner";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Geist, Geist_Mono } from 'next/font/google'
+import { Toaster } from 'sonner'
+import './globals.css'
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+})
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: {
-    default: "E-Commerce - E-Commerce",
-    template: "%s | E-Commerce",
+    default: 'E-Commerce - E-Commerce',
+    template: '%s | E-Commerce',
   },
-  description: "E-Commerce",
+  description: 'E-Commerce',
   keywords: [],
   authors: [],
-  robots: "index, follow",
+  robots: 'index, follow',
   icons: [
     {
-      url: "/images/favicon.ico",
-      href: "/images/favicon.ico",
+      url: '/images/favicon.ico',
+      href: '/images/favicon.ico',
     },
   ],
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="pt-br">
@@ -44,5 +44,5 @@ export default function RootLayout({
         <Toaster />
       </body>
     </html>
-  );
+  )
 }

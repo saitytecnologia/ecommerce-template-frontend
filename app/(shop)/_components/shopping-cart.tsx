@@ -1,7 +1,7 @@
-"use client";
+'use client'
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import {
   Sheet,
   SheetContent,
@@ -10,56 +10,56 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+} from '@/components/ui/sheet'
+import { Minus, Plus, ShoppingBag, Trash2 } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useState } from 'react'
 
 interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  quantity: number;
+  id: string
+  name: string
+  price: number
+  image: string
+  quantity: number
 }
 
 export const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([
     {
-      id: "1",
-      name: "Minimal Tee",
+      id: '1',
+      name: 'Minimal Tee',
       price: 29.99,
-      image: "/placeholder.svg?height=400&width=300",
+      image: '/placeholder.svg?height=400&width=300',
       quantity: 2,
     },
     {
-      id: "3",
-      name: "Classic Watch",
+      id: '3',
+      name: 'Classic Watch',
       price: 129.99,
-      image: "/placeholder.svg?height=400&width=300",
+      image: '/placeholder.svg?height=400&width=300',
       quantity: 1,
     },
-  ]);
+  ])
 
   const updateQuantity = (id: string, newQuantity: number) => {
-    if (newQuantity < 1) return;
+    if (newQuantity < 1) return
 
     setCartItems(
       cartItems.map((item) =>
         item.id === id ? { ...item, quantity: newQuantity } : item
       )
-    );
-  };
+    )
+  }
 
   const removeItem = (id: string) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
-  };
+    setCartItems(cartItems.filter((item) => item.id !== id))
+  }
 
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
-  );
+  )
 
   return (
     <Sheet>
@@ -88,7 +88,7 @@ export const ShoppingCart = () => {
                   <div key={item.id} className="flex gap-4 py-4">
                     <div className="relative aspect-square h-24 w-24 min-w-[6rem] overflow-hidden rounded-md">
                       <Image
-                        src={item.image || "/placeholder.svg"}
+                        src={item.image || '/placeholder.svg'}
                         alt={item.name}
                         fill
                         className="object-cover"
@@ -167,5 +167,5 @@ export const ShoppingCart = () => {
         </SheetFooter>
       </SheetContent>
     </Sheet>
-  );
-};
+  )
+}

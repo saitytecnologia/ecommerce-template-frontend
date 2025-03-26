@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ProductCard } from "../products/_components/product-card";
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { ProductCard } from '../products/_components/product-card'
 
 export const BestSellersSection = () => {
   return (
@@ -53,5 +53,5 @@ export const BestSellersSection = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

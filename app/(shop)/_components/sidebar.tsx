@@ -1,4 +1,4 @@
-import { Logo } from "@/app/_components/logo";
+import { Logo } from '@/app/_components/logo'
 import {
   Sheet,
   SheetContent,
@@ -6,9 +6,9 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
-import Link from "next/link";
+} from '@/components/ui/sheet'
+import { Menu } from 'lucide-react'
+import Link from 'next/link'
 
 export const Sidebar = () => {
   return (
@@ -57,5 +57,5 @@ export const Sidebar = () => {
         </nav>
       </SheetContent>
     </Sheet>
-  );
-};
+  )
+}

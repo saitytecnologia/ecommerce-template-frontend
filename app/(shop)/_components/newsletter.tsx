@@ -1,27 +1,27 @@
-"use client";
+'use client'
 
-import type React from "react";
+import type React from 'react'
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useState } from "react";
-import { toast } from "sonner";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { useState } from 'react'
+import { toast } from 'sonner'
 
 export function Newsletter() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    if (!email) return;
+    if (!email) return
 
     // Here you would typically send this to your API
-    toast("Subscribed!", {
+    toast('Subscribed!', {
       description: "You've successfully subscribed to our newsletter.",
-    });
+    })
 
-    setEmail("");
-  };
+    setEmail('')
+  }
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-muted/30">
@@ -56,5 +56,5 @@ export function Newsletter() {
         </div>
       </div>
     </section>
-  );
+  )
 }

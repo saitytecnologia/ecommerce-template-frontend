@@ -1,5 +1,5 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from 'next/image'
+import Link from 'next/link'
 
 interface CategoryCardProps {
   title: string
@@ -12,7 +12,7 @@ export function CategoryCard({ title, image, href }: CategoryCardProps) {
     <Link href={href} className="group block overflow-hidden rounded-lg">
       <div className="relative aspect-square overflow-hidden">
         <Image
-          src={image || "/placeholder.svg"}
+          src={image || '/placeholder.svg'}
           alt={title}
           fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -25,4 +25,3 @@ export function CategoryCard({ title, image, href }: CategoryCardProps) {
     </Link>
   )
 }
-

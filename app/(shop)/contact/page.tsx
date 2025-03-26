@@ -1,99 +1,99 @@
-"use client";
+'use client'
 
-import { Mail, MapPin, MessageSquare, Phone } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { Mail, MapPin, MessageSquare, Phone } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Separator } from "@/components/ui/separator";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
+} from '@/components/ui/accordion'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Separator } from '@/components/ui/separator'
+import { Textarea } from '@/components/ui/textarea'
+import { toast } from 'sonner'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    inquiryType: "general",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    inquiryType: 'general',
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setFormData({
       ...formData,
       [name]: value,
-    });
-  };
+    })
+  }
 
   const handleInquiryTypeChange = (value: string) => {
     setFormData({
       ...formData,
       inquiryType: value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+    e.preventDefault()
+    setIsSubmitting(true)
 
     // Simulate form submission
     setTimeout(() => {
-      toast("Message Sent", {
+      toast('Message Sent', {
         description:
           "We've received your message and will get back to you soon.",
-      });
-      setIsSubmitting(false);
+      })
+      setIsSubmitting(false)
       setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-        inquiryType: "general",
-      });
-    }, 1000);
-  };
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+        inquiryType: 'general',
+      })
+    }, 1000)
+  }
 
   const faqs = [
     {
-      question: "What are your shipping times?",
+      question: 'What are your shipping times?',
       answer:
-        "We process orders within 1-2 business days. Standard shipping takes 3-5 business days, while express shipping takes 1-2 business days after processing.",
+        'We process orders within 1-2 business days. Standard shipping takes 3-5 business days, while express shipping takes 1-2 business days after processing.',
     },
     {
-      question: "How do I return an item?",
+      question: 'How do I return an item?',
       answer:
-        "You can initiate a return through your account or by contacting our customer service team. Returns must be made within 30 days of purchase, and items must be in their original condition with tags attached.",
+        'You can initiate a return through your account or by contacting our customer service team. Returns must be made within 30 days of purchase, and items must be in their original condition with tags attached.',
     },
     {
-      question: "Do you ship internationally?",
+      question: 'Do you ship internationally?',
       answer:
-        "Yes, we ship to select countries internationally. Shipping costs and delivery times vary by location. You can see the available shipping options during checkout.",
+        'Yes, we ship to select countries internationally. Shipping costs and delivery times vary by location. You can see the available shipping options during checkout.',
     },
     {
-      question: "How can I track my order?",
+      question: 'How can I track my order?',
       answer:
         "Once your order ships, you'll receive a confirmation email with tracking information. You can also track your order through your account on our website.",
     },
     {
-      question: "What payment methods do you accept?",
+      question: 'What payment methods do you accept?',
       answer:
-        "We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and Apple Pay. All payments are securely processed.",
+        'We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and Apple Pay. All payments are securely processed.',
     },
-  ];
+  ]
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -192,7 +192,7 @@ export default function ContactPage() {
                     className="w-full"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </div>
@@ -444,5 +444,5 @@ export default function ContactPage() {
         </section>
       </main>
     </div>
-  );
+  )
 }

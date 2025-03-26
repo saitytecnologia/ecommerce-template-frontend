@@ -1,60 +1,60 @@
-"use client";
+'use client'
 
-import { Button } from "@/components/ui/button";
-import { Separator } from "@radix-ui/react-separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
-import { ChevronRight, Minus, Plus, ShoppingBag, Star } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useParams } from "next/navigation";
-import { useState } from "react";
+import { Button } from '@/components/ui/button'
+import { Separator } from '@radix-ui/react-separator'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs'
+import { ChevronRight, Minus, Plus, ShoppingBag, Star } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
+import { useState } from 'react'
 
-import { toast } from "sonner";
+import { toast } from 'sonner'
 
 export default function ProductPage() {
-  const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState("m");
+  const [quantity, setQuantity] = useState(1)
+  const [selectedSize, setSelectedSize] = useState('m')
 
-  const params = useParams();
+  const params = useParams()
 
   // This would typically come from an API call using the ID
   const product = {
     id: params.id,
-    name: "Minimal Tee",
+    name: 'Minimal Tee',
     price: 29.99,
     description:
-      "A minimalist essential t-shirt crafted from premium organic cotton for everyday comfort and style. Features a relaxed fit and clean design that pairs effortlessly with anything in your wardrobe.",
-    sizes: ["xs", "s", "m", "l", "xl"],
-    colors: ["Black", "White", "Gray"],
+      'A minimalist essential t-shirt crafted from premium organic cotton for everyday comfort and style. Features a relaxed fit and clean design that pairs effortlessly with anything in your wardrobe.',
+    sizes: ['xs', 's', 'm', 'l', 'xl'],
+    colors: ['Black', 'White', 'Gray'],
     images: [
-      "/placeholder.svg?height=600&width=500",
-      "/placeholder.svg?height=600&width=500",
-      "/placeholder.svg?height=600&width=500",
+      '/placeholder.svg?height=600&width=500',
+      '/placeholder.svg?height=600&width=500',
+      '/placeholder.svg?height=600&width=500',
     ],
     rating: 4.8,
     reviewCount: 124,
     features: [
-      "100% Organic Cotton",
-      "Relaxed Fit",
-      "Machine Washable",
-      "Sustainably Produced",
+      '100% Organic Cotton',
+      'Relaxed Fit',
+      'Machine Washable',
+      'Sustainably Produced',
     ],
-  };
+  }
 
-  const incrementQuantity = () => setQuantity(quantity + 1);
+  const incrementQuantity = () => setQuantity(quantity + 1)
   const decrementQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity(quantity - 1)
     }
-  };
+  }
 
   const handleAddToCart = () => {
-    toast("Added to cart", {
+    toast('Added to cart', {
       description: `${
         product.name
       } (Size: ${selectedSize.toUpperCase()}) has been added to your cart.`,
-    });
-  };
+    })
+  }
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-12">
@@ -74,7 +74,7 @@ export default function ProductPage() {
         <div className="space-y-4">
           <div className="overflow-hidden rounded-lg bg-muted/50">
             <Image
-              src={product.images[0] || "/placeholder.svg"}
+              src={product.images[0] || '/placeholder.svg'}
               alt={product.name}
               width={600}
               height={600}
@@ -88,7 +88,7 @@ export default function ProductPage() {
                 className="overflow-hidden rounded-lg bg-muted/50"
               >
                 <Image
-                  src={image || "/placeholder.svg"}
+                  src={image || '/placeholder.svg'}
                   alt={`${product.name} ${index + 1}`}
                   width={200}
                   height={200}
@@ -109,8 +109,8 @@ export default function ProductPage() {
                     key={i}
                     className={`h-4 w-4 ${
                       i < Math.floor(product.rating)
-                        ? "fill-primary text-primary"
-                        : "fill-muted text-muted"
+                        ? 'fill-primary text-primary'
+                        : 'fill-muted text-muted'
                     }`}
                   />
                 ))}
@@ -133,7 +133,7 @@ export default function ProductPage() {
                 {product.sizes.map((size) => (
                   <Button
                     key={size}
-                    variant={selectedSize === size ? "default" : "outline"}
+                    variant={selectedSize === size ? 'default' : 'outline'}
                     className="h-10 w-10 rounded-md p-0"
                     onClick={() => setSelectedSize(size)}
                   >
@@ -219,5 +219,5 @@ export default function ProductPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,6 +1,6 @@
-import { Logo } from "@/app/_components/logo";
-import { ShoppingCart } from "./shopping-cart";
-import { Sidebar } from "./sidebar";
+import { Logo } from '@/app/_components/logo'
+import { ShoppingCart } from './shopping-cart'
+import { Sidebar } from './sidebar'
 
 export const Header = () => {
   return (
@@ -13,5 +13,5 @@ export const Header = () => {
         <ShoppingCart />
       </div>
     </header>
-  );
-};
+  )
+}

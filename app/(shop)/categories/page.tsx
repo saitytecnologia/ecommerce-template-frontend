@@ -1,59 +1,59 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 export default function CategoriesPage() {
   const categories = [
     {
-      id: "apparel",
-      title: "Apparel",
-      description: "Minimalist clothing essentials for everyday wear",
-      image: "/placeholder.svg?height=600&width=800",
+      id: 'apparel',
+      title: 'Apparel',
+      description: 'Minimalist clothing essentials for everyday wear',
+      image: '/placeholder.svg?height=600&width=800',
       featured: true,
       productCount: 24,
     },
     {
-      id: "accessories",
-      title: "Accessories",
-      description: "Timeless accessories to complete your look",
-      image: "/placeholder.svg?height=600&width=800",
+      id: 'accessories',
+      title: 'Accessories',
+      description: 'Timeless accessories to complete your look',
+      image: '/placeholder.svg?height=600&width=800',
       featured: false,
       productCount: 18,
     },
     {
-      id: "footwear",
-      title: "Footwear",
-      description: "Comfortable and stylish footwear for all occasions",
-      image: "/placeholder.svg?height=600&width=800",
+      id: 'footwear',
+      title: 'Footwear',
+      description: 'Comfortable and stylish footwear for all occasions',
+      image: '/placeholder.svg?height=600&width=800',
       featured: false,
       productCount: 12,
     },
     {
-      id: "home",
-      title: "Home",
-      description: "Minimalist home goods for modern living",
-      image: "/placeholder.svg?height=600&width=800",
+      id: 'home',
+      title: 'Home',
+      description: 'Minimalist home goods for modern living',
+      image: '/placeholder.svg?height=600&width=800',
       featured: false,
       productCount: 16,
     },
     {
-      id: "tech",
-      title: "Tech Accessories",
-      description: "Sleek accessories for your devices",
-      image: "/placeholder.svg?height=600&width=800",
+      id: 'tech',
+      title: 'Tech Accessories',
+      description: 'Sleek accessories for your devices',
+      image: '/placeholder.svg?height=600&width=800',
       featured: false,
       productCount: 9,
     },
     {
-      id: "beauty",
-      title: "Beauty & Wellness",
-      description: "Clean beauty and wellness essentials",
-      image: "/placeholder.svg?height=600&width=800",
+      id: 'beauty',
+      title: 'Beauty & Wellness',
+      description: 'Clean beauty and wellness essentials',
+      image: '/placeholder.svg?height=600&width=800',
       featured: false,
       productCount: 14,
     },
-  ];
+  ]
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -83,7 +83,7 @@ export default function CategoriesPage() {
                   <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                       <Image
-                        src={category.image || "/placeholder.svg"}
+                        src={category.image || '/placeholder.svg'}
                         alt={category.title}
                         fill
                         className="object-cover"
@@ -119,7 +119,7 @@ export default function CategoriesPage() {
                   >
                     <div className="relative aspect-[3/2] overflow-hidden">
                       <Image
-                        src={category.image || "/placeholder.svg"}
+                        src={category.image || '/placeholder.svg'}
                         alt={category.title}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -149,5 +149,5 @@ export default function CategoriesPage() {
         </section>
       </main>
     </div>
-  );
+  )
 }

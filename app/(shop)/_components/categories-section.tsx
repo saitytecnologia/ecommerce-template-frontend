@@ -1,4 +1,4 @@
-import { CategoryCard } from "./category-card";
+import { CategoryCard } from './category-card'
 
 export const CategoriesSection = () => {
   return (
@@ -38,5 +38,5 @@ export const CategoriesSection = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

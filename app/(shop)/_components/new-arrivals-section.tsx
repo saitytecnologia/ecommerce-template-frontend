@@ -1,4 +1,4 @@
-import { ProductCard } from "../products/_components/product-card";
+import { ProductCard } from '../products/_components/product-card'
 
 export const NewArrivalsSection = () => {
   return (
@@ -46,5 +46,5 @@ export const NewArrivalsSection = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

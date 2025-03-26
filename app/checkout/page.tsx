@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import {
   Breadcrumb,
@@ -7,78 +7,78 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Separator } from "@/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Textarea } from "@/components/ui/textarea";
-import { CreditCard, ShieldCheck, Truck } from "lucide-react";
-import Image from "next/image";
-import { ChangeEvent, FormEvent, useState } from "react";
-import { toast } from "sonner";
+} from '@/components/ui/breadcrumb'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Separator } from '@/components/ui/separator'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Textarea } from '@/components/ui/textarea'
+import { CreditCard, ShieldCheck, Truck } from 'lucide-react'
+import Image from 'next/image'
+import { ChangeEvent, FormEvent, useState } from 'react'
+import { toast } from 'sonner'
 
 export default function CheckoutPage() {
-  const [activeStep, setActiveStep] = useState("shipping");
+  const [activeStep, setActiveStep] = useState('shipping')
   const [formData, setFormData] = useState({
     // Shipping
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    address: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    country: "United States",
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    country: 'United States',
     // Payment
-    cardName: "",
-    cardNumber: "",
-    expDate: "",
-    cvv: "",
+    cardName: '',
+    cardNumber: '',
+    expDate: '',
+    cvv: '',
     // Shipping Method
-    shippingMethod: "standard",
-  });
+    shippingMethod: 'standard',
+  })
 
   const cartItems = [
     {
-      id: "1",
-      name: "Minimal Tee",
+      id: '1',
+      name: 'Minimal Tee',
       price: 29.99,
-      image: "/placeholder.svg?height=400&width=300",
+      image: '/placeholder.svg?height=400&width=300',
       quantity: 2,
-      size: "M",
-      color: "Black",
+      size: 'M',
+      color: 'Black',
     },
     {
-      id: "3",
-      name: "Classic Watch",
+      id: '3',
+      name: 'Classic Watch',
       price: 129.99,
-      image: "/placeholder.svg?height=400&width=300",
+      image: '/placeholder.svg?height=400&width=300',
       quantity: 1,
-      color: "Silver",
+      color: 'Silver',
     },
-  ];
+  ]
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setFormData({
       ...formData,
       [name]: value,
-    });
-  };
+    })
+  }
 
   const handleShippingMethodChange = (value: string) => {
     setFormData({
       ...formData,
       shippingMethod: value,
-    });
-  };
+    })
+  }
 
   const handleSubmitShipping = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     // Validate shipping form
     if (
       !formData.firstName ||
@@ -88,16 +88,16 @@ export default function CheckoutPage() {
       !formData.city ||
       !formData.zipCode
     ) {
-      toast("Missing Information", {
-        description: "Please fill in all required fields.",
-      });
-      return;
+      toast('Missing Information', {
+        description: 'Please fill in all required fields.',
+      })
+      return
     }
-    setActiveStep("payment");
-  };
+    setActiveStep('payment')
+  }
 
   const handleSubmitPayment = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     // Validate payment form
     if (
       !formData.cardName ||
@@ -105,31 +105,31 @@ export default function CheckoutPage() {
       !formData.expDate ||
       !formData.cvv
     ) {
-      toast("Missing Information", {
-        description: "Please fill in all payment details.",
-      });
-      return;
+      toast('Missing Information', {
+        description: 'Please fill in all payment details.',
+      })
+      return
     }
-    setActiveStep("review");
-  };
+    setActiveStep('review')
+  }
 
   const handlePlaceOrder = () => {
-    toast("Order Placed!", {
-      description: "Your order has been successfully placed.",
-    });
+    toast('Order Placed!', {
+      description: 'Your order has been successfully placed.',
+    })
     // Redirect to confirmation page in a real app
-  };
+  }
 
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
-  );
-  const shipping = formData.shippingMethod === "express" ? 15.99 : 5.99;
-  const tax = subtotal * 0.08;
-  const total = subtotal + shipping + tax;
+  )
+  const shipping = formData.shippingMethod === 'express' ? 15.99 : 5.99
+  const tax = subtotal * 0.08
+  const total = subtotal + shipping + tax
 
   return (
-    <div className="container mx-auto px-4 md:px-6 py-12">
+    <div className="container mx-auto px-4 py-12 md:px-6">
       <Breadcrumb className="mb-6">
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -142,30 +142,30 @@ export default function CheckoutPage() {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <h1 className="text-3xl font-bold mb-8">Checkout</h1>
+      <h1 className="mb-8 text-3xl font-bold">Checkout</h1>
 
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid gap-8 lg:grid-cols-3">
         <div className="lg:col-span-2">
           <Tabs value={activeStep} className="w-full">
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger
                 value="shipping"
-                onClick={() => setActiveStep("shipping")}
-                disabled={activeStep === "review"}
+                onClick={() => setActiveStep('shipping')}
+                disabled={activeStep === 'review'}
               >
                 Shipping
               </TabsTrigger>
               <TabsTrigger
                 value="payment"
-                onClick={() => setActiveStep("payment")}
-                disabled={activeStep === "shipping" || activeStep === "review"}
+                onClick={() => setActiveStep('payment')}
+                disabled={activeStep === 'shipping' || activeStep === 'review'}
               >
                 Payment
               </TabsTrigger>
               <TabsTrigger
                 value="review"
-                onClick={() => setActiveStep("review")}
-                disabled={activeStep === "shipping" || activeStep === "payment"}
+                onClick={() => setActiveStep('review')}
+                disabled={activeStep === 'shipping' || activeStep === 'payment'}
               >
                 Review
               </TabsTrigger>
@@ -176,7 +176,7 @@ export default function CheckoutPage() {
               <form onSubmit={handleSubmitShipping}>
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold mb-4">
+                    <h2 className="mb-4 text-xl font-semibold">
                       Contact Information
                     </h2>
                     <div className="grid gap-4 sm:grid-cols-2">
@@ -227,7 +227,7 @@ export default function CheckoutPage() {
                   <Separator />
 
                   <div>
-                    <h2 className="text-xl font-semibold mb-4">
+                    <h2 className="mb-4 text-xl font-semibold">
                       Shipping Address
                     </h2>
                     <div className="grid gap-4">
@@ -289,7 +289,7 @@ export default function CheckoutPage() {
                   <Separator />
 
                   <div>
-                    <h2 className="text-xl font-semibold mb-4">
+                    <h2 className="mb-4 text-xl font-semibold">
                       Shipping Method
                     </h2>
                     <RadioGroup
@@ -297,30 +297,30 @@ export default function CheckoutPage() {
                       onValueChange={handleShippingMethodChange}
                       className="space-y-3"
                     >
-                      <div className="flex items-center space-x-2 border p-4 rounded-lg">
+                      <div className="flex items-center space-x-2 rounded-lg border p-4">
                         <RadioGroupItem value="standard" id="standard" />
                         <Label
                           htmlFor="standard"
                           className="flex-1 cursor-pointer"
                         >
-                          <div className="flex justify-between items-center">
+                          <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                              <Truck className="h-5 w-5 text-muted-foreground" />
+                              <Truck className="text-muted-foreground h-5 w-5" />
                               <span>Standard Shipping (3-5 business days)</span>
                             </div>
                             <span className="font-medium">$5.99</span>
                           </div>
                         </Label>
                       </div>
-                      <div className="flex items-center space-x-2 border p-4 rounded-lg">
+                      <div className="flex items-center space-x-2 rounded-lg border p-4">
                         <RadioGroupItem value="express" id="express" />
                         <Label
                           htmlFor="express"
                           className="flex-1 cursor-pointer"
                         >
-                          <div className="flex justify-between items-center">
+                          <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                              <Truck className="h-5 w-5 text-muted-foreground" />
+                              <Truck className="text-muted-foreground h-5 w-5" />
                               <span>Express Shipping (1-2 business days)</span>
                             </div>
                             <span className="font-medium">$15.99</span>
@@ -354,11 +354,11 @@ export default function CheckoutPage() {
               <form onSubmit={handleSubmitPayment}>
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-semibold mb-4">
+                    <h2 className="mb-4 text-xl font-semibold">
                       Payment Method
                     </h2>
-                    <div className="border rounded-lg p-4 mb-6">
-                      <div className="flex items-center gap-2 mb-4">
+                    <div className="mb-6 rounded-lg border p-4">
+                      <div className="mb-4 flex items-center gap-2">
                         <CreditCard className="h-5 w-5" />
                         <span className="font-medium">Credit Card</span>
                       </div>
@@ -410,7 +410,7 @@ export default function CheckoutPage() {
                         </div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="text-muted-foreground flex items-center gap-2 text-sm">
                       <ShieldCheck className="h-4 w-4" />
                       <span>
                         Your payment information is secure and encrypted
@@ -422,7 +422,7 @@ export default function CheckoutPage() {
                     <Button
                       type="button"
                       variant="outline"
-                      onClick={() => setActiveStep("shipping")}
+                      onClick={() => setActiveStep('shipping')}
                     >
                       Back to Shipping
                     </Button>
@@ -438,12 +438,12 @@ export default function CheckoutPage() {
             <TabsContent value="review" className="pt-6">
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-xl font-semibold mb-4">
+                  <h2 className="mb-4 text-xl font-semibold">
                     Review Your Order
                   </h2>
                   <div className="grid gap-6">
-                    <div className="border rounded-lg p-4">
-                      <h3 className="font-medium mb-2">Shipping Information</h3>
+                    <div className="rounded-lg border p-4">
+                      <h3 className="mb-2 font-medium">Shipping Information</h3>
                       <p>
                         {formData.firstName} {formData.lastName}
                         <br />
@@ -459,8 +459,8 @@ export default function CheckoutPage() {
                       </p>
                     </div>
 
-                    <div className="border rounded-lg p-4">
-                      <h3 className="font-medium mb-2">Payment Method</h3>
+                    <div className="rounded-lg border p-4">
+                      <h3 className="mb-2 font-medium">Payment Method</h3>
                       <div className="flex items-center gap-2">
                         <CreditCard className="h-5 w-5" />
                         <span>
@@ -469,12 +469,12 @@ export default function CheckoutPage() {
                       </div>
                     </div>
 
-                    <div className="border rounded-lg p-4">
-                      <h3 className="font-medium mb-2">Shipping Method</h3>
+                    <div className="rounded-lg border p-4">
+                      <h3 className="mb-2 font-medium">Shipping Method</h3>
                       <p>
-                        {formData.shippingMethod === "standard"
-                          ? "Standard Shipping (3-5 business days)"
-                          : "Express Shipping (1-2 business days)"}
+                        {formData.shippingMethod === 'standard'
+                          ? 'Standard Shipping (3-5 business days)'
+                          : 'Express Shipping (1-2 business days)'}
                       </p>
                     </div>
                   </div>
@@ -484,7 +484,7 @@ export default function CheckoutPage() {
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => setActiveStep("payment")}
+                    onClick={() => setActiveStep('payment')}
                   >
                     Back to Payment
                   </Button>
@@ -498,28 +498,28 @@ export default function CheckoutPage() {
         </div>
 
         <div className="lg:col-span-1">
-          <div className="border rounded-lg p-6 bg-muted/10 sticky top-6">
-            <h2 className="font-semibold text-lg mb-4">Order Summary</h2>
+          <div className="bg-muted/10 sticky top-6 rounded-lg border p-6">
+            <h2 className="mb-4 text-lg font-semibold">Order Summary</h2>
 
-            <div className="space-y-4 mb-6">
+            <div className="mb-6 space-y-4">
               {cartItems.map((item) => (
                 <div key={item.id} className="flex gap-4">
                   <div className="relative h-16 w-16 overflow-hidden rounded-md">
                     <Image
-                      src={item.image || "/placeholder.svg"}
+                      src={item.image || '/placeholder.svg'}
                       alt={item.name}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-medium text-sm">{item.name}</h3>
-                    <p className="text-xs text-muted-foreground">
+                    <h3 className="text-sm font-medium">{item.name}</h3>
+                    <p className="text-muted-foreground text-xs">
                       {item.size && `Size: ${item.size}`}
-                      {item.size && item.color && " / "}
+                      {item.size && item.color && ' / '}
                       {item.color && `Color: ${item.color}`}
                     </p>
-                    <div className="flex justify-between mt-1">
+                    <div className="mt-1 flex justify-between">
                       <p className="text-sm">Qty: {item.quantity}</p>
                       <p className="text-sm font-medium">
                         ${(item.price * item.quantity).toFixed(2)}
@@ -555,5 +555,5 @@ export default function CheckoutPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,59 +1,59 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 
 export default function AboutPage() {
   const teamMembers = [
     {
-      name: "Alex Johnson",
-      role: "Founder & Creative Director",
-      image: "/placeholder.svg?height=400&width=400",
-      bio: "Alex founded MONO with a vision to create timeless essentials for the modern individual.",
+      name: 'Alex Johnson',
+      role: 'Founder & Creative Director',
+      image: '/placeholder.svg?height=400&width=400',
+      bio: 'Alex founded MONO with a vision to create timeless essentials for the modern individual.',
     },
     {
-      name: "Sam Taylor",
-      role: "Head of Design",
-      image: "/placeholder.svg?height=400&width=400",
-      bio: "Sam brings over 15 years of design experience to create our minimalist aesthetic.",
+      name: 'Sam Taylor',
+      role: 'Head of Design',
+      image: '/placeholder.svg?height=400&width=400',
+      bio: 'Sam brings over 15 years of design experience to create our minimalist aesthetic.',
     },
     {
-      name: "Jordan Lee",
-      role: "Sustainability Lead",
-      image: "/placeholder.svg?height=400&width=400",
-      bio: "Jordan ensures all our products meet the highest standards of sustainability.",
+      name: 'Jordan Lee',
+      role: 'Sustainability Lead',
+      image: '/placeholder.svg?height=400&width=400',
+      bio: 'Jordan ensures all our products meet the highest standards of sustainability.',
     },
     {
-      name: "Morgan Chen",
-      role: "Operations Director",
-      image: "/placeholder.svg?height=400&width=400",
-      bio: "Morgan oversees our ethical supply chain and production processes.",
+      name: 'Morgan Chen',
+      role: 'Operations Director',
+      image: '/placeholder.svg?height=400&width=400',
+      bio: 'Morgan oversees our ethical supply chain and production processes.',
     },
-  ];
+  ]
 
   const values = [
     {
-      title: "Quality",
+      title: 'Quality',
       description:
-        "We believe in creating products that stand the test of time, both in design and durability.",
+        'We believe in creating products that stand the test of time, both in design and durability.',
     },
     {
-      title: "Sustainability",
+      title: 'Sustainability',
       description:
-        "Our commitment to the planet drives every decision we make, from materials to manufacturing.",
+        'Our commitment to the planet drives every decision we make, from materials to manufacturing.',
     },
     {
-      title: "Transparency",
+      title: 'Transparency',
       description:
         "We're open about our processes, pricing, and the people who make our products.",
     },
     {
-      title: "Simplicity",
+      title: 'Simplicity',
       description:
-        "We embrace minimalism in our designs, focusing on what truly matters.",
+        'We embrace minimalism in our designs, focusing on what truly matters.',
     },
-  ];
+  ]
 
   return (
     <>
@@ -152,7 +152,7 @@ export default function AboutPage() {
               <div key={index} className="space-y-3">
                 <div className="relative aspect-square overflow-hidden rounded-lg">
                   <Image
-                    src={member.image || "/placeholder.svg"}
+                    src={member.image || '/placeholder.svg'}
                     alt={member.name}
                     fill
                     className="object-cover"
@@ -233,5 +233,5 @@ export default function AboutPage() {
         </div>
       </section>
     </>
-  );
+  )
 }

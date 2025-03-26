@@ -1,48 +1,48 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 
 export default function CollectionsPage() {
   const collections = [
     {
-      id: "summer",
-      title: "Summer Essentials",
-      description: "Lightweight pieces perfect for warmer days",
-      image: "/placeholder.svg?height=800&width=1200",
-      secondaryImage: "/placeholder.svg?height=600&width=800",
+      id: 'summer',
+      title: 'Summer Essentials',
+      description: 'Lightweight pieces perfect for warmer days',
+      image: '/placeholder.svg?height=800&width=1200',
+      secondaryImage: '/placeholder.svg?height=600&width=800',
       featured: true,
       productCount: 16,
     },
     {
-      id: "minimal",
-      title: "Minimalist Capsule",
-      description: "Timeless essentials for a versatile wardrobe",
-      image: "/placeholder.svg?height=600&width=800",
-      secondaryImage: "/placeholder.svg?height=600&width=800",
+      id: 'minimal',
+      title: 'Minimalist Capsule',
+      description: 'Timeless essentials for a versatile wardrobe',
+      image: '/placeholder.svg?height=600&width=800',
+      secondaryImage: '/placeholder.svg?height=600&width=800',
       featured: false,
       productCount: 12,
     },
     {
-      id: "monochrome",
-      title: "Monochrome Edit",
-      description: "Black and white pieces for a sleek, cohesive look",
-      image: "/placeholder.svg?height=600&width=800",
-      secondaryImage: "/placeholder.svg?height=600&width=800",
+      id: 'monochrome',
+      title: 'Monochrome Edit',
+      description: 'Black and white pieces for a sleek, cohesive look',
+      image: '/placeholder.svg?height=600&width=800',
+      secondaryImage: '/placeholder.svg?height=600&width=800',
       featured: false,
       productCount: 9,
     },
     {
-      id: "sustainable",
-      title: "Sustainable Collection",
-      description: "Eco-friendly products made from sustainable materials",
-      image: "/placeholder.svg?height=600&width=800",
-      secondaryImage: "/placeholder.svg?height=600&width=800",
+      id: 'sustainable',
+      title: 'Sustainable Collection',
+      description: 'Eco-friendly products made from sustainable materials',
+      image: '/placeholder.svg?height=600&width=800',
+      secondaryImage: '/placeholder.svg?height=600&width=800',
       featured: false,
       productCount: 14,
     },
-  ];
+  ]
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -85,7 +85,7 @@ export default function CollectionsPage() {
                   </div>
                   <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                     <Image
-                      src={collection.image || "/placeholder.svg"}
+                      src={collection.image || '/placeholder.svg'}
                       alt={collection.title}
                       fill
                       className="object-cover"
@@ -118,7 +118,7 @@ export default function CollectionsPage() {
                     </Link>
                     <div className="relative aspect-[3/2] overflow-hidden">
                       <Image
-                        src={collection.image || "/placeholder.svg"}
+                        src={collection.image || '/placeholder.svg'}
                         alt={collection.title}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -202,5 +202,5 @@ export default function CollectionsPage() {
         </section>
       </main>
     </div>
-  );
+  )
 }

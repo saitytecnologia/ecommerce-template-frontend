@@ -1,21 +1,21 @@
-"use client";
+'use client'
 
-import type React from "react";
+import type React from 'react'
 
-import { ShoppingCart } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { ShoppingCart } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useState } from 'react'
 
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { Button } from '@/components/ui/button'
+import { toast } from 'sonner'
 
 interface ProductCardProps {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
+  id: string
+  name: string
+  price: number
+  image: string
+  category: string
 }
 
 export function ProductCard({
@@ -25,16 +25,16 @@ export function ProductCard({
   image,
   category,
 }: ProductCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
 
   const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+    e.preventDefault()
+    e.stopPropagation()
 
-    toast("Added to cart", {
+    toast('Added to cart', {
       description: `${name} has been added to your cart.`,
-    });
-  };
+    })
+  }
 
   return (
     <div
@@ -45,14 +45,14 @@ export function ProductCard({
       <Link href={`/products/${id}`} className="block">
         <div className="relative aspect-square overflow-hidden">
           <Image
-            src={image || "/placeholder.svg"}
+            src={image || '/placeholder.svg'}
             alt={name}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <div
             className={`absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 ${
-              isHovered ? "opacity-100" : "opacity-0"
+              isHovered ? 'opacity-100' : 'opacity-0'
             }`}
           >
             <Button
@@ -73,5 +73,5 @@ export function ProductCard({
         </div>
       </Link>
     </div>
-  );
+  )
 }

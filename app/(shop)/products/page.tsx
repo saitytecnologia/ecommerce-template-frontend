@@ -1,20 +1,20 @@
-"use client";
+'use client'
 
-import { Filter } from "lucide-react";
-import { useState } from "react";
+import { Filter } from 'lucide-react'
+import { useState } from 'react'
 
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
+} from '@/components/ui/select'
+import { Separator } from '@/components/ui/separator'
 import {
   Sheet,
   SheetContent,
@@ -22,71 +22,71 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { ProductCard } from "./_components/product-card";
+} from '@/components/ui/sheet'
+import { ProductCard } from './_components/product-card'
 
 export default function ProductsPage() {
-  const [sortBy, setSortBy] = useState("featured");
+  const [sortBy, setSortBy] = useState('featured')
 
   // This would typically come from an API
   const products = [
     {
-      id: "1",
-      name: "Minimal Tee",
+      id: '1',
+      name: 'Minimal Tee',
       price: 29.99,
-      image: "/placeholder.svg?height=400&width=300",
-      category: "Apparel",
+      image: '/placeholder.svg?height=400&width=300',
+      category: 'Apparel',
     },
     {
-      id: "2",
-      name: "Essential Hoodie",
+      id: '2',
+      name: 'Essential Hoodie',
       price: 59.99,
-      image: "/placeholder.svg?height=400&width=300",
-      category: "Apparel",
+      image: '/placeholder.svg?height=400&width=300',
+      category: 'Apparel',
     },
     {
-      id: "3",
-      name: "Classic Watch",
+      id: '3',
+      name: 'Classic Watch',
       price: 129.99,
-      image: "/placeholder.svg?height=400&width=300",
-      category: "Accessories",
+      image: '/placeholder.svg?height=400&width=300',
+      category: 'Accessories',
     },
     {
-      id: "4",
-      name: "Leather Wallet",
+      id: '4',
+      name: 'Leather Wallet',
       price: 49.99,
-      image: "/placeholder.svg?height=400&width=300",
-      category: "Accessories",
+      image: '/placeholder.svg?height=400&width=300',
+      category: 'Accessories',
     },
     {
-      id: "5",
-      name: "Minimalist Backpack",
+      id: '5',
+      name: 'Minimalist Backpack',
       price: 89.99,
-      image: "/placeholder.svg?height=400&width=300",
-      category: "Accessories",
+      image: '/placeholder.svg?height=400&width=300',
+      category: 'Accessories',
     },
     {
-      id: "6",
-      name: "Slim Fit Jeans",
+      id: '6',
+      name: 'Slim Fit Jeans',
       price: 79.99,
-      image: "/placeholder.svg?height=400&width=300",
-      category: "Apparel",
+      image: '/placeholder.svg?height=400&width=300',
+      category: 'Apparel',
     },
     {
-      id: "7",
-      name: "Canvas Sneakers",
+      id: '7',
+      name: 'Canvas Sneakers',
       price: 69.99,
-      image: "/placeholder.svg?height=400&width=300",
-      category: "Footwear",
+      image: '/placeholder.svg?height=400&width=300',
+      category: 'Footwear',
     },
     {
-      id: "8",
-      name: "Ceramic Mug Set",
+      id: '8',
+      name: 'Ceramic Mug Set',
       price: 39.99,
-      image: "/placeholder.svg?height=400&width=300",
-      category: "Home",
+      image: '/placeholder.svg?height=400&width=300',
+      category: 'Home',
     },
-  ];
+  ]
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-12">
@@ -283,5 +283,5 @@ export default function ProductsPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export function PromoSection() {
   return (
@@ -39,5 +39,5 @@ export function PromoSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
