@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 interface CartItem {
@@ -160,7 +161,9 @@ export const ShoppingCart = () => {
             <span className="text-muted-foreground">Subtotal</span>
             <span>R${subtotal.toFixed(2)}</span>
           </div>
-          <Button>Ir para Checkout</Button>
+          <Link href="/checkout">
+            <Button className="w-full cursor-pointer">Ir para Checkout</Button>
+          </Link>
         </SheetFooter>
       </SheetContent>
     </Sheet>
